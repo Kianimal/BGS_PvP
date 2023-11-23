@@ -19,7 +19,7 @@ function EnablePvPControls()
     EnableControlAction(0, GetHashKey('INPUT_MELEE_GRAPPLE_CHOKE'), true)
 end
 
-function TogglePvP()
+RegisterNetEvent("BGS_PvP:TogglePvP", function()
     SetResourceKvp(PlayerPedId(), "pvpEnabled")
     isPvPEnabled = not isPvPEnabled
     if not isPvPEnabled then
@@ -27,11 +27,7 @@ function TogglePvP()
     else
         EnablePvPControls()
     end
-end
-
-RegisterCommand(Config.Command, function()
-    TogglePvP()
-end, false)
+end)
 
 Citizen.CreateThread(function()
     while true do
