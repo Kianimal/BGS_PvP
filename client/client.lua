@@ -22,6 +22,7 @@ end
 RegisterNetEvent("BGS_PvP:TogglePvP", function()
     SetResourceKvp(PlayerPedId(), "pvpEnabled")
     isPvPEnabled = not isPvPEnabled
+    TriggerEvent("vorp:setPVPUi", isPvPEnabled)
     if not isPvPEnabled then
         DisablePvPControls()
     else
